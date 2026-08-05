@@ -4,6 +4,8 @@ from .models import Ocorrencia, Bairro
 from .forms import BairroForm, OcorrenciaForm
 
 
+
+
 # View do dashboard, que exibe as ocorrências e os totalizadores
 @login_required
 def dashboard(request):
@@ -131,3 +133,4 @@ def excluir_ocorrencia(request, pk):
         ocorrencia.delete()
         return redirect('dashboard')
     return render(request, 'ocorrencias/ocorrencia_confirm_delete.html', {'ocorrencia': ocorrencia})
+
