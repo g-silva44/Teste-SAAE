@@ -1,4 +1,5 @@
 # Apresentação
+<img width="1904" height="999" alt="Dashboard" src="https://github.com/user-attachments/assets/8ea7c9cd-13dc-4fa1-b61f-10baa662d145" />\
 Projeto criado para teste de habilidade técnica do SAAE Juazeiro. Desenvolvido utilizando Python/Django, HTML, CSS e JavaScript  
 Requisitos:
 ```
@@ -7,7 +8,7 @@ Requisitos:
 3. Cadastro de ocorrências contendo: bairro, data/hora, descrição, status (Em
 andamento/Resolvido) e responsável.
 4. Listagem com pesquisa por bairro e status.
-5. Dashboard inicial exibindo: Total de ocorrências Ocorrências em andamento
+5. Dashboard inicial exibindo: Total de ocorrências, Ocorrências em andamento e
 Ocorrências resolvidas  
 6. Interface responsiva.
 7. Validação de formulários.
@@ -15,6 +16,44 @@ Ocorrências resolvidas
 ```
 
 # Documentação
+### Entidade - Relacionamento
+```mermaid
+erDiagram
+    USER ||--o{ OCORRENCIA : "registra / é responsavel"
+    BAIRRO ||--o{ OCORRENCIA : "possui"
+
+    BAIRRO {
+        int id PK
+        string nome
+        float latitude
+        float longitude
+    }
+
+    OCORRENCIA {
+        int id PK
+        int bairro_id FK
+        datetime data_hora
+        string descricao
+        string status
+        int responsavel_id FK
+    }
+
+    USER {
+        int id PK
+        string username
+        string email
+    }
+```
+### Diagrama de caso de uso  
+```mermaid
+graph TD
+    A[Usuário/Operador] -->|Login| B(Autenticação)
+    B --> C[Dashboard Inicial]
+    C -->|Visualiza| D[Mapa de Ocorrências]
+    C -->|Filtra por| E[Bairro e Status]
+    C -->|Gerencia| F[CRUD de Bairros]
+    C -->|Gerencia| G[CRUD de Ocorrências]
+```
 
 # Como rodar
 
