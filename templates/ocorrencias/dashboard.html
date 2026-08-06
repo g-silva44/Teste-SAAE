@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load l10n %}
-{% load static %} {# <-- FALTAVA ESTA LINHA PARA O O {% static %} FUNCIONAR #}
+{% load static %}
 
 {% block content %}
 <!-- Cards totalizadores -->
@@ -95,7 +95,7 @@
                     {% for item in ocorrencias %}
                     <tr>
                         <td class="fw-bold">{{ item.bairro.nome }}</td>
-                        <td>{{ item.data_hora|date:"d/m/Y H:i" }}</td>
+                        <td>{{ item.data_hora|date:"d/m/Y  H:i" }}</td>
                         <td>{{ item.descricao }}</td>
                         <td>
                             {% if item.status == 'EM_ANDAMENTO' %}

@@ -3,9 +3,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Ocorrencia, Bairro
 from .forms import BairroForm, OcorrenciaForm
 
-
-
-
 # View do dashboard, que exibe as ocorrências e os totalizadores
 @login_required
 def dashboard(request):
@@ -57,7 +54,8 @@ def dashboard(request):
 
     return render(request, 'ocorrencias/dashboard.html', context)
 
-# CRUD de bairros
+# CRUD de Bairros --------------------------------------------------------------
+# Criar bairro
 @login_required
 def criar_bairro(request):
     if request.method == 'POST':
@@ -98,6 +96,8 @@ def excluir_bairro(request, pk):
         return redirect('listar_bairros')
     return render(request, 'ocorrencias/bairro_confirm_delete.html', {'bairro': bairro})
 
+
+# CRUD de Ocorrências --------------------------------------------------------------
 # Criar ocorrência
 @login_required
 def criar_ocorrencia(request):

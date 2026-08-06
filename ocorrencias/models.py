@@ -28,7 +28,6 @@ class Ocorrencia(models.Model):
     descricao = models.TextField(verbose_name="Descrição do Problema")
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='EM_ANDAMENTO', verbose_name="Status")
     responsavel = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Responsável")
-    criado_em = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['-data_hora']

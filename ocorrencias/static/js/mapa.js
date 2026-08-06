@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       marker.bindPopup(`
                 <div style="font-family: sans-serif; min-width: 150px;">
-                    <strong style="color: #d9534f; font-size: 14px;">⚠️ ${item.bairro}</strong><br>
+                    <strong style="color: #d9534f; font-size: 14px;">${item.bairro}</strong><br>
                     <small class="text-muted"><b>Data/Hora:</b> ${item.data_hora}</small><br>
                     <p style="margin: 6px 0 0 0; font-size: 13px;">${item.descricao}</p>
                 </div>
