@@ -25,3 +25,7 @@ Navegar até a pasta raiz do projeto\
 ```python manage.py runserver```\
 **Acessar no navegador:** \
 <ins>```http://127.0.0.1:8000```</ins>
+
+# Testes automatizados localmente
+**Rodar:**\
+```python manage.py test ocorrencias```
