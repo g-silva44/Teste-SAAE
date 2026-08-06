@@ -4,7 +4,6 @@ from .models import Bairro, Ocorrencia
 
 # Formulário de bairros
 class BairroForm(forms.ModelForm):
-    # Definimos os campos como CharField com TextInput para total controle de digitação
     latitude = forms.CharField(
         widget=forms.TextInput(attrs={
             'class': 'form-control', 
@@ -32,14 +31,14 @@ class BairroForm(forms.ModelForm):
             }),
         }
 
-    # Validação e higienização do campo Nome (Requisito 7)
+    # Validação do campo nome
     def clean_nome(self):
         nome = self.cleaned_data.get('nome')
         if nome and len(nome.strip()) < 3:
             raise forms.ValidationError("O nome do bairro deve ter pelo menos 3 caracteres.")
         return nome.strip() if nome else nome
 
-    # Converte qualquer vírgula para ponto e valida se é um float numérico válido
+    # Converte vírgula para ponto
     def clean_latitude(self):
         val = self.cleaned_data.get('latitude')
         if val:

@@ -5,14 +5,15 @@ from ocorrencias import views
 from django.urls import path, include
 
 urlpatterns = [
-    
+    # Página padrão do Django Admin
     path('admin/', admin.site.urls),
 
     # Bairros
-        path('bairros/', views.listar_bairros, name='listar_bairros'),
-        path('bairros/novo/', views.criar_bairro, name='criar_bairro'),
-        path('bairros/<int:pk>/editar/', views.editar_bairro, name='editar_bairro'),
-        path('bairros/<int:pk>/excluir/', views.excluir_bairro, name='excluir_bairro'),
+    path('bairros/', views.listar_bairros, name='listar_bairros'),
+    path('bairros/novo/', views.criar_bairro, name='criar_bairro'),
+    path('bairros/<int:pk>/editar/', views.editar_bairro, name='editar_bairro'),
+    path('bairros/<int:pk>/excluir/', views.excluir_bairro, name='excluir_bairro'),
+
     # Dashboard
     path('', views.dashboard, name='dashboard'),
 

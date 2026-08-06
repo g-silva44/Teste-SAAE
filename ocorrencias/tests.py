@@ -35,7 +35,7 @@ class OcorrenciaViewsTest(TestCase):
         self.assertEqual(response.status_code, 302) # Redirect para login
 
     def test_dashboard_acesso_com_login(self):
-    # Verifica se o dashboard carrega com sucesso para usuários logados
+    # Verifica se o dashboard carrega para usuários logados
         self.client.login(username='testuser', password='password123')
         response = self.client.get(reverse('dashboard'))
         self.assertEqual(response.status_code, 200)
@@ -56,7 +56,7 @@ class OcorrenciaViewsTest(TestCase):
         # Envia o formulário
         response = self.client.post(reverse('criar_ocorrencia'), data)
         
-        # Deve redirecionar para o dashboard após sucesso
+        # Redireciona para o dashboard após sucesso
         self.assertEqual(response.status_code, 302)
         
         # Confirma gravação no banco

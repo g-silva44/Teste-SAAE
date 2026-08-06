@@ -35,24 +35,4 @@ document.addEventListener("DOMContentLoaded", function () {
       return marker;
     }
   }
-
-  // Conexão em tempo real
-  const evtSource = new EventSource("/stream-ocorrencias/");
-
-  evtSource.onmessage = function (event) {
-    const novaOcorrencia = JSON.parse(event.data);
-
-    // Adiciona o novo pino no mapa
-    const novoMarcador = adicionarMarcador(novaOcorrencia);
-
-    if (novoMarcador) {
-      // Centraliza o mapa no novo ponto e abre o balão de alerta
-      map.flyTo([novaOcorrencia.lat, novaOcorrencia.lng], 14);
-      novoMarcador.openPopup();
-    }
-  };
-
-  setTimeout(() => {
-    map.invalidateSize();
-  }, 300);
 });
