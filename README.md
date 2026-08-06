@@ -59,9 +59,10 @@ graph TD
 
 ### Subir o container Docker
 1. Abra o Docker Desktop
-2. **Rodar:**  
+2. Navegue até a pasta raiz do projeto
+3. **Rodar no CMD:**  
 ```docker-compose up```
-3. **Criar superusuário:**
+4. **Criar superusuário:**
   - ```docker-compose exec web python manage.py createsuperuser```  
     - **Recomendado:**  
       - ```
