@@ -61,7 +61,19 @@ graph TD
 1. Abra o Docker Desktop
 2. **Rodar:**  
 ```docker-compose up```
-3. **Acesse no navegador:**
+3. **Criar superusuário:**
+  - ```docker-compose exec web python manage.py createsuperuser```  
+    - **Recomendado:**  
+      - ```
+        Usuário: saae 
+        ```
+      - ```
+        E-mail: deixar vazio
+        ```
+      - ```
+        Senha: Saae1357
+        ```
+4. **Acesse no navegador:**
 <ins>```http://localhost:8000/```</ins>
 
 ### Login do usuário root
@@ -83,9 +95,33 @@ Senha: Saae1357
 
 ### Rodar localmente
 1. Navegar até a pasta raiz do projeto  
-2. **No CMD**:  
-```python manage.py runserver```  
-3. **Acessar no navegador:**   
+2. **No CMD**:
+  - **Criar venv:**
+    - ```python -m venv venv```
+  - **Ativar venv:**
+    - **Windows:**
+      - ```venv\Scripts\activate```
+    - **Linux/Mac:**
+      - ```source venv/bin/activate```  
+  - **Instalar dependências:**  
+    - ```pip install -r requirements.txt```  
+  - **Instalar migrações do banco:**  
+    - ```python manage.py migrate```  
+  - **Criar superusuário:**
+    - ```python manage.py createsuperuser```  
+    - **Recomendado:**  
+      - ```
+        Usuário: saae 
+        ```
+      - ```
+        E-mail: deixar vazio
+        ```
+      - ```
+        Senha: Saae1357
+        ```
+  - **Iniciar o servidor:**  
+    - ```python manage.py runserver```
+4. **Acessar no navegador:**   
 <ins>```http://127.0.0.1:8000```</ins>
 
 ## Testes automatizados localmente
